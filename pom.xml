@@ -8,7 +8,7 @@
         <version>2.7.8</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>net.4onl</groupId>
+    <groupId>com.datdt</groupId>
     <artifactId>kafka-demo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>kafka-demo</name>
