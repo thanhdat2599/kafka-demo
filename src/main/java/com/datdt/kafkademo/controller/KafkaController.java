@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
 import com.datdt.kafkademo.dto.MessageDTO;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
@@ -19,10 +21,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class KafkaController {
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
-    @Value("${topic.datdt}")
+    @Value("${kafka.topic.datdt.name}")
     private String topicName;
 
-    @PostMapping("/send-message")
+    @PostMapping("/publish")
     public ResponseEntity<MessageDTO> sendMessage(@RequestBody MessageDTO message) throws JsonProcessingException {
         ObjectMapper objectMapper = new ObjectMapper();
         String payload = objectMapper.writeValueAsString(message);

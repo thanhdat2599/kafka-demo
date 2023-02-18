@@ -1,0 +1,16 @@
+kafka:
+  group-id:
+    group1: group-datdt
+  topic:
+    datdt:
+      name: datdt
+      retry:
+        attempts: 3
+        backoff:
+          delay: 700
+spring:
+  kafka:
+    bootstrap-servers: localhost:9092
+  swagger-ui:
+    operationsSorter: method
+    path: /swagger-ui/index.html
